@@ -1,6 +1,11 @@
-A JavaScript module for searching Flickr
+A JavaScript module for searching Flickr, for standalone
+and require.js use
 
+- Mike "Pomax" Kamermans
+
+-----------------------------------------------------------
 Quick example pending real documentation:
+-----------------------------------------------------------
 
   var flickrFindr = FlickrFindr({
     // required API key
@@ -12,7 +17,7 @@ Quick example pending real documentation:
     // filtering parameters:
     filters: {
       license: "1,2,3,4,5,6", // CC-BY(-*) images
-      content_type: 1,        // photos only, no screenshots
+      content_type: 1,        // no screenshots
       media: "photos"         // photos, not video
     }
   });
@@ -22,8 +27,8 @@ Quick example pending real documentation:
    */
   var showResults = function(finder) {
     var contentPane = $("div.images", finder.template),
-        entry, href, link, i, last;
-    for(i=finder.lastCount, last=finder.entries.length; i<last; i++) {
+        entry, href, link, i, last=finder.entries.length;
+    for(i=finder.lastCount; i<last; i++) {
       entry = finder.entries[i];
       link = document.createElement("span");
       link.appendChild(entry.img);
@@ -34,6 +39,13 @@ Quick example pending real documentation:
   };
 
   /**
-   * bind show function as callback for "more results were retrieved" event
+   * bind show function as callback for "more results were
+   * retrieved" event
    */
   flickrFinder.setCallback(showResults);
+
+-----------------------------------------------------------
+For a vanilla template and .css styling, check out the
+gh-pages branch, which contains flickrfindr.css and
+flickrfinder_template.html files.
+-----------------------------------------------------------
