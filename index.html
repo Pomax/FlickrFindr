@@ -53,10 +53,10 @@
             link.title = entry.title;
             link.onclick = (function(imglink,href) {
               return function() {
-                window.console.log("lol");
-                var imgHTML = "&lt;img src=\"<a href='"+i+"'>"+imglink+"</a>\" alt=\"Found on: <a href='"+href+"'>"+href+"</a>\"&gt;",
+                var imgHTML = "&lt;img src=\"<a href='"+imglink+"'>"+imglink+"</a>\" alt=\"Found on: <a href='"+href+"'>"+href+"</a>\"&gt;",
                     imageDiv = $("div.imgCode div", finder.template);
                 imageDiv.html(imgHTML);
+                $(document.body).css("background-image","url("+imglink+")");
               };
             }(entry.dataUrlB, entry.href));
             contentPane.append(link);
