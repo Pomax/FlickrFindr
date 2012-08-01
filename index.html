@@ -55,7 +55,13 @@
               return function() {
                 var imgHTML = "&lt;img src=\"<a href='"+imglink+"'>"+imglink+"</a>\" alt=\"Found on: <a href='"+href+"'>"+href+"</a>\"&gt;",
                     imageDiv = $("div.imgCode div", finder.template);
+                
+                // Show what the <img> code will look like
                 imageDiv.html(imgHTML);
+
+                // Use this image as page background image, too,
+                // because we want to see it do something in addition
+                // to just showing hypothetical HTML code!
                 $(document.body).css("background-image","url("+imglink+")");
               };
             }(entry.dataUrlB, entry.href));
