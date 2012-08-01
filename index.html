@@ -6,9 +6,10 @@
     <link rel="stylesheet" type="text/css" href="flickrfindr.css">
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://raw.github.com/Pomax/FlickrFindr/master/flickrfindr.js"></script>
+    <script src="jquery-ui-1.8.22.custom.min.js"></script>
   </head>
   <body>
-    <div id='FlickrFindrPane'>
+    <div id='FlickrFindrPane' class="ui-draggable">
       <div class='title'>
         Search <a href='//flickr.com'>Flickr</a> for pictures: <input class='tags' type='search' placeholder='by typing keywords here'>
         <span class='close'>X</span>
@@ -74,6 +75,9 @@
          * bind show function as callback for "more results were retrieved" event
          */
         flickrFindr.setCallback(showResults);
+
+        // make draggable
+        $("#FlickrFindrPane").draggable();
       };
       document.addEventListener("DOMContentLoaded",init,false);
     </script>
