@@ -43,7 +43,6 @@
          * what to do when there's search results
          */
         var showResults = function(finder) {
-          window.console.log("lol");
           var contentPane = $("div.images", finder.template),
               entry, href, link, i, last,
               imgHTML;
@@ -52,13 +51,15 @@
             link = document.createElement("span");
             link.appendChild(entry.img);
             link.title = entry.title;
-            link.onclick = (function(i,h) {
+            link.onclick = (function(imglink,href) {
               return function() {
-                var imgHTML = "&lt;img src=\"<a href='"+i+"'>"+i+"</a>\" alt=\"Found on: <a href='"+h+"'>"+h+"</a>\"&gt;",
+                window.console.log("lol");
+                var imgHTML = "&lt;img src=\"<a href='"+i+"'>"+imglink+"</a>\" alt=\"Found on: <a href='"+href+"'>"+href+"</a>\"&gt;",
                     imageDiv = $("div.imgCode div", finder.template);
                 imageDiv.html(imgHTML);
               };
             }(entry.dataUrlB, entry.href));
+            contentPane.append(link);
           }
           finder.moreOnScroll = true;
         };
