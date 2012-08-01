@@ -22,7 +22,7 @@
   {
     var $ = jQuery,
         api_key = options.api_key,
-        template = $(options.template())[0],
+        template = options.template,
         api_location = "http://api.flickr.com/services/rest/?",
         constructed = api_location + "agent=flickrfindr" + "&api_key=" + api_key,
         addArgument = function(arg, val) { constructed += "&" + arg + "=" + val; },
