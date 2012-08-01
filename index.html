@@ -45,13 +45,20 @@
         var showResults = function(finder) {
           window.console.log("lol");
           var contentPane = $("div.images", finder.template),
-              entry, href, link, i, last;
+              entry, href, link, i, last,
+              imgHTML;
           for(i=finder.lastCount, last=finder.entries.length; i<last; i++) {
             entry = finder.entries[i];
             link = document.createElement("span");
             link.appendChild(entry.img);
             link.title = entry.title;
-            contentPane.append(link);
+            link.onclick = (function(i,h) {
+              return function() {
+                var imgHTML = "&lt;img src=\"<a href='"+i+"'>"+i+"</a>\" alt=\"Found on: <a href='"+h+"'>"+h+"</a>\"&gt;",
+                    imageDiv = $("div.imgCode div", finder.template);
+                imageDiv.html(imgHTML);
+              };
+            }(entry.dataUrlB, entry.href));
           }
           finder.moreOnScroll = true;
         };
