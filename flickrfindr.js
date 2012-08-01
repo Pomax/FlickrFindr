@@ -220,5 +220,5 @@
   }
 
   // We are not using require.js
-  else { return FlickrFindr; }
+  else { window.FlickrFindr = FlickrFindr; }
 }());
