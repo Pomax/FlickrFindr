@@ -5,7 +5,7 @@
     <title>FlickrFindr demonstrator</title>
     <link rel="stylesheet" type="text/css" href="flickrfindr.css">
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="https://raw.github.com/Pomax/FlickrFindr/master/flickrfindr.js"></script>
+    <script src="flickrfindr.js"></script>
     <script src="jquery-ui-1.8.22.custom.min.js"></script>
   </head>
   <body>
@@ -45,7 +45,7 @@
             media: "photos"         // photos, not video
           }
         });
-        
+
         /**
          * what to do when there's search results
          */
@@ -62,7 +62,7 @@
               return function() {
                 var imgHTML = "&lt;img src=\"<a href='"+imglink+"'>"+imglink+"</a>\" alt=\"Found on: <a href='"+href+"'>"+href+"</a>\"&gt;",
                     imageDiv = $("div.imgCode div", finder.template);
-                
+
                 // Show what the <img> code will look like
                 imageDiv.html(imgHTML);
 
